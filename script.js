@@ -12,6 +12,7 @@
   const pauseBtn = document.getElementById("pause-btn");
   const resetBtn = document.getElementById("reset-btn");
   const fullscreenBtn = document.getElementById("fullscreen-btn");
+  const dingBtn = document.getElementById("ding-btn");
   const presetButtons = document.getElementById("preset-buttons");
   const ringAudio = new Audio("ring.mp3");
   ringAudio.preload = "auto";
@@ -29,6 +30,7 @@
   pauseBtn.addEventListener("click", pauseTimer);
   resetBtn.addEventListener("click", resetTimer);
   fullscreenBtn.addEventListener("click", toggleFullscreen);
+  dingBtn.addEventListener("click", playDing);
 
   minutesInput.addEventListener("change", applyConfiguredTime);
   secondsInput.addEventListener("change", applyConfiguredTime);

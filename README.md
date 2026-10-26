@@ -10,6 +10,7 @@ This project is a single-page timer built with only HTML, CSS, and JavaScript.
   - Bottom 1/6: control panel
 - Control panel includes separate numeric inputs for minutes and seconds and a warning-threshold seconds input.
 - Control panel includes preset quick-start buttons that set timer/warning values, reset, start, and request fullscreen.
+- Control panel includes a `ding!` button that plays the alert sound (`ring.mp3`, or the 3-beep fallback) on demand.
 - Works in normal browser mode and fullscreen mode.
 
 ## Configuration
