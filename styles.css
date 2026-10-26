@@ -1,0 +1,161 @@
+:root {
+  --top-bg: #39ff14;
+  --bottom-bg: #000000;
+  --text-color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-color);
+  background: #000;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.timer-panel {
+  flex: 5;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--top-bg);
+  transition: background-color 0.25s ease-in-out;
+}
+
+.timer-content {
+  display: flex;
+  align-items: center;
+  gap: 0.12em;
+  font-size: clamp(7rem, 28vw, 32rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  user-select: none;
+  transform-origin: center center;
+}
+
+.time-display {
+  font-size: inherit;
+}
+
+.warning-icon {
+  width: 1em;
+  height: 1em;
+  fill: #ffd400;
+  stroke: #111111;
+  stroke-width: 4;
+  display: none;
+}
+
+.warning-icon rect,
+.warning-icon circle {
+  fill: #111111;
+  stroke: none;
+}
+
+.warning-icon.visible {
+  display: inline-block;
+}
+
+.warning-icon.blinking {
+  animation: warning-blink 0.7s steps(1, end) infinite;
+}
+
+@keyframes warning-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.controls-panel {
+  flex: 1;
+  min-height: 0;
+  background: var(--bottom-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.8rem 1rem;
+  overflow: auto;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.controls-panel > .row:not(.preset-buttons-row) {
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.buttons-row button {
+  min-width: 5.5rem;
+}
+
+.preset-buttons-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+  gap: 0.35rem;
+}
+
+.preset-buttons-row button {
+  min-width: 0;
+  padding: 0.25rem 0.35rem;
+}
+
+input,
+button {
+  font: inherit;
+  border: 1px solid #666;
+  border-radius: 0.3rem;
+  padding: 0.3rem 0.45rem;
+}
+
+input[type="number"] {
+  text-align: right;
+  padding-right: 0.3rem;
+}
+
+/* Sized to fit each field's max value (999, 59, 9999) plus room for the spin buttons */
+#minutes-input {
+  width: calc(4ch + 2rem);
+}
+
+#seconds-input {
+  width: calc(3ch + 2rem);
+}
+
+#warning-seconds-input {
+  width: calc(5ch + 2rem);
+}
+
+button {
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
