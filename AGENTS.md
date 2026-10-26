@@ -4,7 +4,7 @@
 
 - This is a dependency-free, single-page browser app. `index.html` loads `styles.css` and `script.js` directly; there is no build step or package manager.
 - `script.js` contains timer, preset, fullscreen, and alert-audio behavior in a single IIFE. Its DOM lookups rely on the IDs/classes in `index.html`.
-- Preset values are declared in `index.html` as `data-total-seconds` and `data-warning-seconds` attributes and handled by the `#preset-buttons` delegated click listener.
+- Preset values are declared in `index.html` as `data-total-seconds`, `data-warning-seconds`, and `data-jump-seconds` attributes and handled by the `#preset-buttons` delegated click listener.
 - `styles.css` defines theme colors as `:root` custom properties. Timer warning/expired states are updated by `updateVisualState()` in JavaScript.
 - `ring.mp3` is the primary alert sound; `script.js` falls back to Web Audio beeps if playback fails.
 

@@ -10,6 +10,7 @@ This project is a single-page timer built with only HTML, CSS, and JavaScript.
   - Bottom 1/6: control panel
 - Control panel includes separate numeric inputs for minutes and seconds and a warning-threshold seconds input.
 - Control panel includes preset quick-start buttons that set timer/warning values, reset, start, and request fullscreen.
+- Each preset's `data-jump-seconds` attribute skips that many seconds from its countdown. Reset restores the full configured duration.
 - Control panel includes a `ding!` button that plays the alert sound (`ring.mp3`, or the 3-beep fallback) on demand.
 - Works in normal browser mode and fullscreen mode.
 
@@ -53,5 +54,4 @@ Start-Process chrome.exe "C:\UTV\timer\index.html"
 ## License
 
 This project is licensed under the GNU Lesser General Public License, version 3. See [LICENSE](LICENSE) for the full text.
-
 

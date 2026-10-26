@@ -47,11 +47,12 @@
 
       const totalSecondsFromPreset = Number.parseInt(btn.dataset.totalSeconds, 10);
       const warningSecondsFromPreset = Number.parseInt(btn.dataset.warningSeconds, 10);
-      if (Number.isNaN(totalSecondsFromPreset) || Number.isNaN(warningSecondsFromPreset)) {
+      const jumpSecondsFromPreset = Number.parseInt(btn.dataset.jumpSeconds || "0", 10);
+      if (Number.isNaN(totalSecondsFromPreset) || Number.isNaN(warningSecondsFromPreset) || Number.isNaN(jumpSecondsFromPreset)) {
         return;
       }
 
-      applyPreset(totalSecondsFromPreset, warningSecondsFromPreset);
+      applyPreset(totalSecondsFromPreset, warningSecondsFromPreset, jumpSecondsFromPreset);
     });
   }
 
@@ -100,7 +101,7 @@
     updateVisualState();
   }
 
-  function applyPreset(totalSecondsValue, warningSecondsValue) {
+  function applyPreset(totalSecondsValue, warningSecondsValue, jumpSecondsValue) {
     pauseTimer();
 
     const safeTotalSeconds = Math.max(0, totalSecondsValue);
@@ -112,6 +113,9 @@
     warningSecondsInput.value = clampWarningSeconds(warningSecondsValue);
 
     applyConfiguredTime();
+    timeLeft -= Math.max(0, jumpSecondsValue);
+    renderTime(timeLeft);
+    updateVisualState();
     startTimer();
     enterFullscreen();
   }
@@ -289,8 +293,6 @@
     });
   }
 })();
-
-
 
 
 
