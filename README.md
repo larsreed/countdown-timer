@@ -50,4 +50,8 @@ Start-Process msedge.exe "C:\UTV\timer\index.html"
 Start-Process chrome.exe "C:\UTV\timer\index.html"
 ```
 
+## License
+
+This project is licensed under the GNU Lesser General Public License, version 3. See [LICENSE](LICENSE) for the full text.
+
 
