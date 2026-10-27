@@ -1,5 +1,5 @@
 :root {
-  --top-bg: #39ff14;
+  --top-bg: #299908;
   --bottom-bg: #000000;
   --text-color: #ffffff;
 }
@@ -90,6 +90,19 @@ body {
   gap: 0.65rem;
   padding: 0.8rem 1rem;
   overflow: auto;
+}
+
+#progress-divider {
+  height: 10px;
+  background: #1a1a1a;
+  overflow: hidden;
+}
+
+#progress-fill {
+  height: 100%;
+  width: 0;
+  background: #ffffff;
+  transition: width 0.2s linear;
 }
 
 .row {

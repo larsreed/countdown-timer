@@ -3,6 +3,7 @@
   const timerContent = document.querySelector(".timer-content");
   const timeDisplay = document.getElementById("time-display");
   const warningIcon = document.getElementById("warning-icon");
+  const progressFill = document.getElementById("progress-fill");
 
   const minutesInput = document.getElementById("minutes-input");
   const secondsInput = document.getElementById("seconds-input");
@@ -127,7 +128,19 @@
     const secs = absSeconds % 60;
     const sign = isNegative ? "-" : "";
     timeDisplay.textContent = `${sign}${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+    updateProgressBar();
     scheduleTimerFit();
+  }
+
+  function updateProgressBar() {
+    if (!progressFill) {
+      return;
+    }
+
+    const elapsed = totalSeconds - timeLeft;
+    const rawProgress = totalSeconds > 0 ? elapsed / totalSeconds : (timeLeft <= 0 ? 1 : 0);
+    const clampedProgress = Math.min(1, Math.max(0, rawProgress));
+    progressFill.style.width = `${clampedProgress * 100}%`;
   }
 
   function startTimer() {
