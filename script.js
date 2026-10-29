@@ -23,6 +23,7 @@
   let timerId = null;
   let hasPlayedDing = false;
   let fitScheduled = false;
+  const BLINK_START_SECONDS = 5;
 
   renderTime(timeLeft);
   updateVisualState();
@@ -194,10 +195,11 @@
       return;
     }
 
-    if (warningThreshold > 0 && timeLeft < warningThreshold) {
+    const isWarningWindow = (warningThreshold > 0 && timeLeft < warningThreshold) || timeLeft <= BLINK_START_SECONDS;
+    if (isWarningWindow) {
       timerPanel.style.backgroundColor = "#ff2a2a";
       warningIcon.classList.add("visible");
-      warningIcon.classList.remove("blinking");
+      warningIcon.classList.toggle("blinking", timeLeft <= BLINK_START_SECONDS);
       scheduleTimerFit();
       return;
     }

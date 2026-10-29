@@ -19,13 +19,13 @@ body {
 }
 
 .app {
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
 }
 
 .timer-panel {
-  flex: 7;
+  flex: 1 1 auto;
   min-height: 0;
   display: flex;
   align-items: center;
@@ -81,7 +81,7 @@ body {
 }
 
 .controls-panel {
-  flex: 1;
+  flex: 0 0 auto;
   min-height: 0;
   background: var(--bottom-bg);
   display: flex;
@@ -118,6 +118,7 @@ body {
 }
 
 .buttons-row button {
+  flex: 1 1 5.5rem;
   min-width: 5.5rem;
 }
 
@@ -160,6 +161,42 @@ input[type="number"] {
 
 button {
   cursor: pointer;
+}
+
+@media (max-width: 760px) {
+  .controls-panel {
+    gap: 0.5rem;
+    padding: 0.65rem 0.6rem;
+    justify-content: flex-start;
+  }
+
+  .row {
+    gap: 0.35rem;
+  }
+
+  .controls-panel > .row:not(.preset-buttons-row) {
+    width: 100%;
+    margin-inline: 0;
+    justify-content: center;
+  }
+
+  .preset-buttons-row {
+    grid-template-columns: repeat(auto-fit, minmax(4.75rem, 1fr));
+  }
+
+  .buttons-row button {
+    min-width: 4.5rem;
+  }
+}
+
+@media (max-height: 700px) {
+  .timer-panel {
+    flex: 1 1 45%;
+  }
+
+  .controls-panel {
+    justify-content: flex-start;
+  }
 }
 
 
