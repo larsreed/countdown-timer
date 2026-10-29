@@ -285,7 +285,7 @@
   }
 
   function syncFullscreenButtonText() {
-    fullscreenBtn.textContent = document.fullscreenElement ? "Exit Fullscreen" : "Fullscreen";
+    fullscreenBtn.textContent = document.fullscreenElement ? "Exit Full" : "Fullscreen";
   }
 
   function toggleFullscreen() {
